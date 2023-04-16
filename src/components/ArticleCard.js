@@ -14,8 +14,7 @@ function ArticleCard (props) {
         <Card.Title>{props.title}</Card.Title>
         <Card.Text>{props.description}</Card.Text>
         <Button variant="primary">
-            {/* <a></a> */}
-            Read
+            <a href={props.url} target="_blank" style={{color:'White'}}>Read</a>
         </Button>
       </Card.Body>
     </Card>
