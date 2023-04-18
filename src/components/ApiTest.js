@@ -3,6 +3,9 @@ import { useState } from 'react'
 
 import ArticleCard from './ArticleCard'
 
+
+// calls the API to return articles based on DEFAULT parameters (add a search bar to accomodate query searches)
+
 function ApiTest(){
     const apiKey = process.env.REACT_APP_API_KEY;
 
