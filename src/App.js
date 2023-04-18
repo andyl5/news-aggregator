@@ -3,14 +3,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import NavbarLayout from "./components/NavbarLayout";
 import ApiTest from './components/ApiTest';
-import ArticleScrapeTest from '../ArticleScrapeTest';
+import ReadArticle from './components/ReadArticle';
 
 function App() {
   return (
     <div>
-      <NavbarLayout/>
-      <ApiTest/>
-      {/* <ArticleScrapeTest/> */}
+      {/* <NavbarLayout/>
+      <ApiTest/> */}
+      <ReadArticle/>
     </div>
   )
 }
