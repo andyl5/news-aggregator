@@ -8,9 +8,8 @@ import ReadArticle from './components/ReadArticle';
 function App() {
   return (
     <div>
-      {/* <NavbarLayout/>
-      <ApiTest/> */}
-      <ReadArticle/>
+      <NavbarLayout/>
+      <ApiTest/>
     </div>
   )
 }
