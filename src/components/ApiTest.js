@@ -3,8 +3,12 @@ import { useState } from 'react'
 
 import ArticleCard from './ArticleCard'
 
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 // calls the API to return articles based on DEFAULT parameters (add a search bar to accomodate query searches)
+
+// THIS IS JUST A TEST FUNCTION, and result is that it works
 
 function ApiTest(){
     const apiKey = process.env.REACT_APP_API_KEY;
@@ -29,22 +33,31 @@ function ApiTest(){
       const url = `https://newsapi.org/v2/everything?q=${query}&apiKey=${apiKey}`;
       const response = await axios.get(url);
       setArticles(response.data);
+      console.log(response.data)
     };
 
     
     return (
         <div>
-
-      {/* <button onClick={setQuery}>Test Request</button> */}
-
-      {/* <button onClick={getQuery}>Test Request</button> */}
-      <input
+      {/* <input
         type="text"
         placeholder="Enter a search term"
         value={query}
         onChange={(event) => setQuery(event.target.value)}
       />
-      <button onClick={searchArticles}>Search</button>
+      <button onClick={searchArticles}>Search</button> */}
+
+          <Form className="d-flex">
+            <p>ApiTest.js</p>
+            <Form.Control
+              type="search"
+              placeholder="Enter a search term"
+              className="me-2"
+              aria-label="Search"
+              onChange = {(event) => setQuery(event.target.value)}
+            />
+            <Button variant="outline-success" onClick={searchArticles}>Search</Button>
+          </Form>
 
 
 {responseData  ? (
@@ -54,7 +67,12 @@ function ApiTest(){
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
             {responseData.articles.map(article => (
               <div key={article.url}>
-                <ArticleCard title={article.title} image={article.urlToImage} description={article.description} url={article.url}/>
+                <ArticleCard 
+                title={article.title} 
+                image={article.urlToImage} 
+                description={article.description} 
+                url={article.url} 
+                publish={article.publishedAt}/>
               </div>
             ))}
           </div>

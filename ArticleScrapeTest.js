@@ -15,7 +15,7 @@ let url = 'https://newsapi.org/v2/everything?' +
 'sortBy=publishedAt&' +
 // WORKS WHEN YOU PUT IN THE API KEY HERE, BUT FIGURE OUT HOW TO HIDE THE API KEY AND CALL IT FROM .env
 // Also figure out how to add backend to this project so that this code here runs when you click into a new article
-`apiKey=INSERTYOURAPIKEY`;
+`apiKey=${apiKey}`;
 
 // Make the request with axios' get() function
 axios.get(url).then(function(r1) {
