@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom'
 import ArticleCard from "./ArticleCard"
 
 // Import component functions
-import { searchArticles } from './Api';
+import { searchArticlesByQuery, searchArticlesByCategory } from './Api';
 
 function ArticleResultsList() {
 
@@ -15,20 +15,41 @@ function ArticleResultsList() {
   // Stores the user's query
   const searchParams = new URLSearchParams(location.search);
   const query = searchParams.get('q');
+  const category = searchParams.get('c')
 
   const [articles, setArticles] = useState([]);
   const [totalResults, setTotalResults] = useState(0);
 
   // Makes a promise to retrieve the data from the API
+  // useEffect(() => {
+  //   async function fetchArticles() {
+  //     const data = await searchArticlesByQuery(query);
+  //     // Sets the JSON data to appropriate state variables
+  //     setArticles(data.articles || []);      
+  //     setTotalResults(data.totalResults || 0);
+  //   }
+  //   fetchArticles();
+  // }, [query]);
+
+
+
   useEffect(() => {
     async function fetchArticles() {
-      const data = await searchArticles(query);
+      console.log(query)
+      console.log(category)
+      let data = null
+      if (query) {
+        data = await searchArticlesByQuery(query);
+      } else if (category) {
+        data = await searchArticlesByCategory(category);
+      }
       // Sets the JSON data to appropriate state variables
       setArticles(data.articles || []);      
       setTotalResults(data.totalResults || 0);
     }
     fetchArticles();
-  }, [query]);
+  }, [query, category]);
+
 
   return (
     <div>
@@ -39,6 +60,7 @@ function ArticleResultsList() {
           <div key={article.url}>
             <ArticleCard 
               title={article.title} 
+              source={article.source.name}
               image={article.urlToImage} 
               description={article.description} 
               url={article.url} 

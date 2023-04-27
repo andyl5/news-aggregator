@@ -14,7 +14,9 @@ import ArticleResultsList from "./components/ArticleResultsList";
 
 function Navigation() {
   return (
-    <NavbarLayout/>
+    <div>
+      <NavbarLayout/>
+    </div>
   );
 }
 
@@ -25,6 +27,7 @@ function App() {
       <Navigation/>
       <Routes>
         <Route path="search" element={<ArticleResultsList/>}/>
+        {/* <Route path="technology" element={<ArticleResultsList category={"technology"}/>}/> */}
       </Routes>
     </BrowserRouter>
   )

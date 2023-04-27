@@ -1,3 +1,6 @@
+// DELETE
+// THIS IS NOT NEEDED ANYMORE
+
 import axios from 'axios'
 import { useState, createContext } from 'react'
 import { Link } from 'react-router-dom'

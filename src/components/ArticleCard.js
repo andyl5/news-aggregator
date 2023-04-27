@@ -12,6 +12,7 @@ function ArticleCard (props) {
       <Card.Img variant="top" src={props.image}/>
       <Card.Body>
         <Card.Title>{props.title}</Card.Title>
+        <Card.Title>{props.source}</Card.Title>
         <Card.Text>{props.description}</Card.Text>
         <Card.Text>{props.publish}</Card.Text>
         <Button variant="primary">

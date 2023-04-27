@@ -1,3 +1,6 @@
+// DON'T NEED THIS FILE ANYMORE
+// DELETE
+
 import axios from 'axios'
 import { useState } from 'react'
 
@@ -39,14 +42,6 @@ function ApiTest(){
     
     return (
         <div>
-      {/* <input
-        type="text"
-        placeholder="Enter a search term"
-        value={query}
-        onChange={(event) => setQuery(event.target.value)}
-      />
-      <button onClick={searchArticles}>Search</button> */}
-
           <Form className="d-flex">
             <p>ApiTest.js</p>
             <Form.Control
