@@ -12,7 +12,7 @@ export const searchArticlesByQuery = async (query) => {
 
 
 export const searchArticlesByCategory = async (category) => {
-  const url = `https://newsapi.org/v2/top-headlines?category=${category}&apiKey=${apiKey}`;
+  const url = `https://newsapi.org/v2/top-headlines?category=${category}&country=us&apiKey=${apiKey}`;
   const response = await axios.get(url);
   console.log(response.data)
   return response.data;
