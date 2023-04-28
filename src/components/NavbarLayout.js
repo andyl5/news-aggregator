@@ -33,9 +33,6 @@ function NavbarLayout() {
             <Nav.Link as={Link} to="/search?c=sports" activeClassName="active">Sports</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link as={Link} to="/search?c=business" activeClassName="active">Business</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
             <Nav.Link as={Link} to="/search?c=entertainment" activeClassName="active">Entertainment</Nav.Link>
           </Nav.Item>
           <Nav.Item>
