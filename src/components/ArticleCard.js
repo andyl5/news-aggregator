@@ -13,8 +13,8 @@ function ArticleCard (props) {
       <Card.Body>
         <Card.Title>{props.title}</Card.Title>
         <Card.Title>{props.source}</Card.Title>
-        <Card.Text>{props.description}</Card.Text>
         <Card.Text>{props.publish}</Card.Text>
+        <Card.Text>{props.description}</Card.Text>
         <Button variant="primary">
             <a href={props.url} target="_blank" style={{color:'White'}}>Read</a>
         </Button>

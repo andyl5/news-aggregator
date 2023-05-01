@@ -5,8 +5,9 @@ import { useLocation } from 'react-router-dom'
 // Import components
 import ArticleCard from "./ArticleCard"
 
-// Import component functions
+// Import JS functions
 import { searchArticlesByQuery, searchArticlesByCategory } from './Api';
+import { FormatTime } from './FormatTime';
 
 function ArticleResultsList() {
 
@@ -63,8 +64,9 @@ function ArticleResultsList() {
               source={article.source.name}
               image={article.urlToImage} 
               description={article.description} 
-              url={article.url} 
-              publish={article.publishedAt}
+              url={article.url}              
+              publish={FormatTime(article.publishedAt)}
+              // publish={article.publishedAt}
             />
           </div>
         ))}

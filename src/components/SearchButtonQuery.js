@@ -6,6 +6,13 @@ import Button from 'react-bootstrap/Button';
 function SearchButtonQuery() {
   const [query, setQuery] = useState("");
 
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      document.getElementById("search-btn").click();
+    }
+  };
+
   return (
     <div>
       <Form className="d-flex">
@@ -15,10 +22,11 @@ function SearchButtonQuery() {
           className="me-2"
           aria-label="Search"
           onChange={(event) => setQuery(event.target.value)}
+          onKeyDown={handleKeyDown}
         />
 
         <Link to={`/search?q=${query}`}>
-          <Button variant="outline-success">Search</Button>
+          <Button id="search-btn" variant="outline-success">Search</Button>
         </Link>
       </Form>
     </div>
