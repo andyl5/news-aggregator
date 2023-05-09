@@ -8,9 +8,9 @@ function ArticleCard (props) {
     // title - article title
     // image - article image
     // description - article description
-    <Card style={{ width: '18rem' }}>
+    <Card style={{ width: '18rem', height: '36rem' }}>
       <Card.Img variant="top" src={props.image}/>
-      <Card.Body>
+      <Card.Body style={{flex: 1, overflow: 'auto'}}>
         <Card.Title>{props.title}</Card.Title>
         <Card.Title>{props.source}</Card.Title>
         <Card.Text>{props.publish}</Card.Text>
