@@ -13,6 +13,7 @@ function ArticleResultsList() {
 
   // Gets the URL
   const location = useLocation();
+  console.log(location)
   // Stores the user's query
   const searchParams = new URLSearchParams(location.search);
   const query = searchParams.get('q');
@@ -66,7 +67,6 @@ function ArticleResultsList() {
               description={article.description} 
               url={article.url}              
               publish={FormatTime(article.publishedAt)}
-              // publish={article.publishedAt}
             />
           </div>
         ))}

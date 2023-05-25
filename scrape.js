@@ -1,5 +1,3 @@
-const apiKey = process.env.REACT_APP_API_KEY;
-
 // we need axios to make HTTP requests
 const axios = require('axios');
 
@@ -13,9 +11,7 @@ const { Readability } = require('@mozilla/readability');
 let url = 'https://newsapi.org/v2/everything?' +
 'q=Apple&' +
 'sortBy=publishedAt&' +
-// WORKS WHEN YOU PUT IN THE API KEY HERE, BUT FIGURE OUT HOW TO HIDE THE API KEY AND CALL IT FROM .env
-// Also figure out how to add backend to this project so that this code here runs when you click into a new article
-`apiKey=${apiKey}`;
+'apiKey=e318d1f45c2a4a17bf35320f03fc9cbd';
 
 // Make the request with axios' get() function
 axios.get(url).then(function(r1) {
