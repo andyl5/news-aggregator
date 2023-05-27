@@ -2,7 +2,7 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavbarLayout from "./components/NavbarLayout";
 import ArticleResultsList from "./components/ArticleResultsList";
-import ScrapeArticle from "./components/ScrapeArticle";
+import ReadArticle from "./components/ReadArticle";
 
 // const router = createBrowserRouter(
 //   createRoutesFromElements(
@@ -30,7 +30,7 @@ function App() {
         <Route path="search" element={<ArticleResultsList/>}/>
 
         {/* <Route path="read?url=:_url" element={<ScrapeArticle/>}/> */}
-        <Route path="read" element={<ScrapeArticle/>}/>
+        <Route path="read" element={<ReadArticle/>}/>
 
       </Routes>
     </BrowserRouter>

@@ -16,12 +16,15 @@ function ArticleCard (props) {
         <Card.Title>{props.source}</Card.Title>
         <Card.Text>{props.publish}</Card.Text>
         <Card.Text>{props.description}</Card.Text>
+          <Link to={`/read?url=${props.url}`}>
+            <Button variant="outline-success">Read</Button>
+          </Link>
+
+        {/* OLD: Opens article/video in new tab */}
         {/* <Button variant="primary">
             <a href={props.url} target="_blank" style={{color:'White'}}>Read</a>
         </Button> */}
-        <Link to={`/read?url=${props.url}`}>
-          <Button id="search-btn" variant="outline-success">Read</Button>
-        </Link>
+
       </Card.Body>
     </Card>
   );

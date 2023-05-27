@@ -22,19 +22,6 @@ function ArticleResultsList() {
   const [articles, setArticles] = useState([]);
   const [totalResults, setTotalResults] = useState(0);
 
-  // Makes a promise to retrieve the data from the API
-  // useEffect(() => {
-  //   async function fetchArticles() {
-  //     const data = await searchArticlesByQuery(query);
-  //     // Sets the JSON data to appropriate state variables
-  //     setArticles(data.articles || []);      
-  //     setTotalResults(data.totalResults || 0);
-  //   }
-  //   fetchArticles();
-  // }, [query]);
-
-
-
   useEffect(() => {
     async function fetchArticles() {
       console.log(query)

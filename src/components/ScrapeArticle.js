@@ -1,18 +1,17 @@
-import { useLocation } from 'react-router-dom';
+import { useEffect, useState } from "react";
 
 function ScrapeArticle() {
-  const location = useLocation();
-  console.log(location);
-  const searchParams = new URLSearchParams(location.search);
-  const url = searchParams.get('url');
-  console.log(url);
 
+  const [articleContent, setArticleContent] = useState(null)
+  useEffect(() => {
+    fetch("/")
+      .then((res) => res.json())
+      .then((data) => setArticleContent(data.content))
+  }, []);
   return (
     <div>
-      <h1>url</h1>
-      <a href={url}>{url}</a>
+      {/* <p>{articleContent}</p> */}
     </div>
-  );
+  )
 }
-
-export default ScrapeArticle;
+export default ScrapeArticle
