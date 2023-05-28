@@ -1,5 +1,3 @@
-import { useLocation } from 'react-router';
-
 const express = require('express');
 const cors = require('cors');
 const app = express();
@@ -42,11 +40,32 @@ app.use(cors()); // Enable CORS for all routes
 
 // add the article scrape logic. it should display the article content on the read route
 // possible solution below
+app.use(express.json()); // Middleware to parse request body
 
-app.get('/api', (req, res) => {
+// app.get('/api', (req, res) => {
+app.post('/api', (req, res) => {
+
+  let url = req.body.url;
+  
+
   // axios get request to article url, then the code from the snippet, then set that articlecontent which comes from (usestate) like this, content: articleContent
 
-  res.json({ content: "test yooo kinda working" });
+  // WIP code to see if parsing article content works
+  // let url = 'https://www.cnbc.com/2023/05/25/directv-nfl-sunday-ticket-bars-restaurants.html';
+  axios.get(url)
+    .then(function(response) {
+      let dom = new JSDOM(response.data, { url: url });
+      let article = new Readability(dom.window.document).parse();
+      console.log(article.textContent);
+      res.json({content: article.textContent});
+    })
+    // .catch(function(error) {
+    //   console.error(error);
+    // });
+
+
+
+  // res.json({ content: "test yooo kinda working" });
 });
 
 app.listen(port, () => {
