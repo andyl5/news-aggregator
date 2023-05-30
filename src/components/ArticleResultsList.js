@@ -54,6 +54,7 @@ function ArticleResultsList() {
               description={article.description} 
               url={article.url}              
               publish={FormatTime(article.publishedAt)}
+              author={article.author}
             />
           </div>
         ))}

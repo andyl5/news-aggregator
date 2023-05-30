@@ -4,15 +4,6 @@ import NavbarLayout from "./components/NavbarLayout";
 import ArticleResultsList from "./components/ArticleResultsList";
 import ReadArticle from "./components/ReadArticle";
 
-// const router = createBrowserRouter(
-//   createRoutesFromElements(
-//     <Route path="/" element={<NavbarLayout/>}>
-//       {/* <Route path="search" element={<ArticleResultsList/>}/> */}
-//       <Route path="/results" element={<ArticleResultsList />} />
-//     </Route>
-//   )
-// )
-
 function Navigation() {
   return (
     <div>

@@ -40,12 +40,14 @@ app.use(cors()); // Enable CORS for all routes
 
 // add the article scrape logic. it should display the article content on the read route
 // possible solution below
-app.use(express.json()); // Middleware to parse request body
+// Middleware to parse request body
+app.use(express.json());
 
 // app.get('/api', (req, res) => {
-app.post('/api', (req, res) => {
+app.get('/read', (req, res) => {
+// app.post('/api', (req, res) => {
 
-  let url = req.body.url;
+  const url = req.query.url;
   
 
   // axios get request to article url, then the code from the snippet, then set that articlecontent which comes from (usestate) like this, content: articleContent
