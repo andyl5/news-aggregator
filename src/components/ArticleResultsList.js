@@ -9,9 +9,10 @@ import ArticleCard from "./ArticleCard"
 import { searchArticlesByQuery, searchArticlesByCategory } from './Api';
 import { FormatTime } from './FormatTime';
 
-function ArticleResultsList() {
+import placeholder from '../images/placeholder.jpg'
 
-  // Gets the URL
+function ArticleResultsList() {
+  // Gets the project URL
   const location = useLocation();
   console.log(location)
   // Stores the user's query
@@ -39,25 +40,24 @@ function ArticleResultsList() {
     fetchArticles();
   }, [query, category]);
 
-
   return (
-    <div>
-      <h1>News Headlines</h1>
-      <p>{totalResults} total results</p>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-        {articles.map(article => (
-          <div key={article.url}>
-            <ArticleCard 
-              title={article.title} 
-              source={article.source.name}
-              image={article.urlToImage} 
-              description={article.description} 
-              url={article.url}              
-              publish={FormatTime(article.publishedAt)}
-              author={article.author}
-            />
-          </div>
-        ))}
+    <div className='container-fluid'>
+    <h1>News Headlines</h1>
+      <p>{totalResults} results for '<strong>{query}</strong>'</p>
+      <div className='row'>
+          {articles.map(article => (
+            <div key={article.url} className='col-md-3'>
+              <ArticleCard 
+                title={article.title} 
+                source={article.source.name}
+                image={article.urlToImage ? article.urlToImage : placeholder}
+                description={article.description} 
+                url={article.url}              
+                publish={FormatTime(article.publishedAt)}
+                author={article.author}
+                />
+            </div>
+          ))}
       </div>
     </div>
   );

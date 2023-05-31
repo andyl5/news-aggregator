@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NavbarLayout from "./components/NavbarLayout";
 import ArticleResultsList from "./components/ArticleResultsList";
 import ReadArticle from "./components/ReadArticle";
+import Homepage from "./components/Homepage";
 
 function Navigation() {
   return (
@@ -14,22 +15,15 @@ function Navigation() {
 
 function App() {
   return (
-    // <RouterProvider router={router}/>
     <BrowserRouter>
       <Navigation/>
       <Routes>
+        <Route path="/" element={<Homepage/>}/>
         <Route path="search" element={<ArticleResultsList/>}/>
-
-        {/* <Route path="read?url=:_url" element={<ScrapeArticle/>}/> */}
         <Route path="read" element={<ReadArticle/>}/>
-
       </Routes>
     </BrowserRouter>
   )
 }
 
 export default App;
-
-// simplifying react router
-// keep the search in the navbar, but instead of setting data, it puts the query in the url. react redirect
-// search?q=apple
