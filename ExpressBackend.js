@@ -13,6 +13,7 @@ app.get('/read', (req, res) => {
   const url = req.query.url;
   axios.get(url)
     .then(function(response) {
+      // Scrapes the original article for the article content
       let dom = new JSDOM(response.data, { url: url });
       let article = new Readability(dom.window.document).parse();
       console.log(article.textContent);

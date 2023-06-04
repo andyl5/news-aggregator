@@ -1,4 +1,4 @@
-function Homepage() {
+export default function Homepage() {
   return (
     <div className="container text-center">
       <p className="display-2 mt-5">Welcome to the News Aggregator!</p>
@@ -7,5 +7,3 @@ function Homepage() {
     </div>
   )
 }
-
-export default Homepage
