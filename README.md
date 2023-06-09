@@ -16,6 +16,10 @@ News Aggregator is a centralized platform to search for and read articles from 1
 * Search articles by predefined categories
 * Read articles without going to the original article website
 
+## Usage
+![ezgif com-video-to-gif (1)](https://github.com/andyl5/news-aggregator/assets/81489476/3998776c-ec96-4520-a991-d97446b2b4be)
+
+
 ## Technology Stack
 * React
 * Bootstrap
