@@ -1,6 +1,6 @@
 # News Aggregator
 
-News Aggregator is a centralized platform offering access to articles from over 1,000 diverse news sources. It provides users with a wide range of perspectives across the political spectrum to enhance our understanding 
+[News Aggregator](https://news-aggregator-zeta.vercel.app) is a centralized platform offering access to articles from over 1,000 diverse news sources. It provides users with a wide range of perspectives across the political spectrum to enhance our understanding 
  of the news through varied viewpoints.
 
 ## Features
