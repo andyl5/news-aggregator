@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
 
-function ArticleCard (props) {
+export default function ArticleCard (props) {
   const [loading, setLoading] = useState(false);
+
+  // Function that sends a POST request to the backend with all the parameters in the URL
   const handleClick = () => {
     const articleData = {
       url: props.url,
@@ -43,5 +45,3 @@ function ArticleCard (props) {
     </Link>
   );
 }
-
-export default ArticleCard;

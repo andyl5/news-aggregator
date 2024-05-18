@@ -1,9 +1,7 @@
-// Import libraries
 import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import axios from 'axios';
 
-// Import components
 import ArticleCard from "./ArticleCard"
 
 // Import JS functions
@@ -22,6 +20,7 @@ function ArticleResultsList() {
   const [articles, setArticles] = useState([]);
   const [totalResults, setTotalResults] = useState(0);
 
+  // Calls the API function to retrieve the articles from the query
   useEffect(() => {
     async function fetchArticles() {
       let data
