@@ -16,7 +16,7 @@ function ArticleCard (props) {
     fetch('/read', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(articleData)
+      body: JSON.stringify(articleData),
     })
       .then((res) => res.json())
       .then((data) => {

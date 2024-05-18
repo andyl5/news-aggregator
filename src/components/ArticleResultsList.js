@@ -1,12 +1,12 @@
 // Import libraries
 import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import axios from 'axios';
 
 // Import components
 import ArticleCard from "./ArticleCard"
 
 // Import JS functions
-import { searchArticlesByQuery, searchArticlesByCategory } from './Api';
 import { FormatTime } from './FormatTime';
 
 import placeholder from '../images/placeholder.jpg'
@@ -14,7 +14,6 @@ import placeholder from '../images/placeholder.jpg'
 function ArticleResultsList() {
   // Gets the project URL
   const location = useLocation();
-  console.log(location)
   // Stores the user's query
   const searchParams = new URLSearchParams(location.search);
   const query = searchParams.get('q');
@@ -25,17 +24,15 @@ function ArticleResultsList() {
 
   useEffect(() => {
     async function fetchArticles() {
-      console.log(query)
-      console.log(category)
-      let data = null
+      let data
       if (query) {
-        data = await searchArticlesByQuery(query);
+        data = await axios.get(`https://news-aggregator-server-mu.vercel.app/${query}`)
       } else if (category) {
-        data = await searchArticlesByCategory(category);
+        data = await axios.get(`https://news-aggregator-server-mu.vercel.app/${category}`)
       }
       // Sets the JSON data to appropriate state variables
-      setArticles(data.articles || []);      
-      setTotalResults(data.totalResults || 0);
+      setArticles(data.data.articles || []);      
+      setTotalResults(data.data.totalResults || 0);
     }
     fetchArticles();
   }, [query, category]);

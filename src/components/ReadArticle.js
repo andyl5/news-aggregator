@@ -27,7 +27,7 @@ function ReadArticle(){
     setArticleUrl(articleUrl)
   
 
-  fetch(`http://localhost:3001/read?url=${encodeURIComponent(articleUrl)}`)
+  fetch(`https://news-aggregator-server-mu.vercel.app/read?url=${encodeURIComponent(articleUrl)}`)
     .then((res) => res.json())
     .then((data) => {
       setArticleContent(data.content);
@@ -37,7 +37,9 @@ function ReadArticle(){
       setArticlePublish(publishedAt);
       setArticleImage(articleImage)
     })
-    .catch((error) => console.error(error));
+    .catch((error) => {
+      // console.error(error)
+    });
 }, []);
 
     return(
