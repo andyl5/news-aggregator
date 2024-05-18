@@ -25,9 +25,9 @@ function ArticleResultsList() {
     async function fetchArticles() {
       let data
       if (query) {
-        data = await axios.get(`https://news-aggregator-server-mu.vercel.app/${query}`)
+        data = await axios.get(`https://news-aggregator-server-mu.vercel.app/search-query/${query}`)
       } else if (category) {
-        data = await axios.get(`https://news-aggregator-server-mu.vercel.app/${category}`)
+        data = await axios.get(`https://news-aggregator-server-mu.vercel.app/search-category/${category}`)
       }
       // Sets the JSON data to appropriate state variables
       setArticles(data.data.articles || []);      
