@@ -20,14 +20,16 @@ function ArticleResultsList() {
   const [articles, setArticles] = useState([]);
   const [totalResults, setTotalResults] = useState(0);
 
+  const serverURL = process.env.REACT_APP_BACKEND_SERVER_URL
+
   // Calls the API function to retrieve the articles from the query
   useEffect(() => {
     async function fetchArticles() {
       let data
       if (query) {
-        data = await axios.get(`https://news-aggregator-server-mu.vercel.app/search-query/${query}`)
+        data = await axios.get(`${serverURL}/search-query/${query}`)
       } else if (category) {
-        data = await axios.get(`https://news-aggregator-server-mu.vercel.app/search-category/${category}`)
+        data = await axios.get(`${serverURL}/search-category/${category}`)
       }
       // Sets the JSON data to appropriate state variables
       setArticles(data.data.articles || []);      

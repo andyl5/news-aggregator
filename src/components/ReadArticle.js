@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 
 function ReadArticle(){
 
+  const serverURL = process.env.REACT_APP_BACKEND_SERVER_URL
+
   const [articleUrl, setArticleUrl] = useState(null)
   const [articleContent, setArticleContent] = useState(null)
   const [articleTitle, setArticleTitle] = useState(null)
@@ -9,12 +11,6 @@ function ReadArticle(){
   const [articleSource, setArticleSource] = useState(null)
   const [articlePublish, setArticlePublish] = useState(null)
   const [articleImage, setArticleImage] = useState(null)
-
-  // get this part to work, which it doesn't right now because it does not specify the protocol or port
-  // fetch("/api")
-    
-  // specifying localhost:3001/api is hardcoded, but works.
-  // fetch("http://localhost:3001/api")
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -25,9 +21,8 @@ function ReadArticle(){
     const publishedAt = urlParams.get("publish");
     const articleImage = urlParams.get("image");
     setArticleUrl(articleUrl)
-  
 
-  fetch(`https://news-aggregator-server-mu.vercel.app/read?url=${encodeURIComponent(articleUrl)}`)
+  fetch(`${serverURL}/read?url=${encodeURIComponent(articleUrl)}`)
     .then((res) => res.json())
     .then((data) => {
       setArticleContent(data.content);
